@@ -2,10 +2,13 @@ package com.products.isi.products.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.constraints.Max;
 import org.springframework.web.bind.annotation.*;
 import com.products.isi.products.service.interfaces.IProduitService;
 import com.products.isi.products.entity.Produit;
 import lombok.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/produits")
@@ -20,8 +23,12 @@ public class ProduitController {
     }
 
     @PostMapping(path="/creer_Produit")
-    public Produit creeProduit(@RequestBody Produit produit){
+    public Produit creeProduit(Produit produit){
         return iProduitService.creerProduit(produit);
+    }
+    @GetMapping(path = "/listProduit")
+    public List<Produit> listToutProduit(){
+        return iProduitService.ListTout();
     }
 
 

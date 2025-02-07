@@ -2,12 +2,15 @@ package com.products.isi.products.service.implement;
 
 import com.products.isi.products.entity.Produit;
 import com.products.isi.products.repository.ProduitRepository;
+import jakarta.validation.constraints.Max;
 import org.springframework.stereotype.Service;
 import com.products.isi.products.service.interfaces.IProduitService;
 import lombok.*;
 
+import java.util.List;
+
 @Service
-//@RequiredArgsConstructor
+@RequiredArgsConstructor
 public class ProduitServiceImpl implements IProduitService {
 
     private final ProduitRepository produitRepository;
@@ -18,8 +21,13 @@ public class ProduitServiceImpl implements IProduitService {
 
     @Override
     public Produit creerProduit(Produit produit) {
-        Produit produit1 = produitRepository.save(produit);
-        System.out.println("😊😊 le produit enregistre" + produit1);
-        return produit1;
+        return produitRepository.save(produit);
     }
+
+    @Override
+    public List<Produit> ListTout() {
+       return produitRepository.findAll();
+    }
+
+
 }
