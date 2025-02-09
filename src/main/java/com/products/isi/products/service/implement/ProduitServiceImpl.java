@@ -10,7 +10,7 @@ import lombok.*;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class ProduitServiceImpl implements IProduitService {
 
     private final ProduitRepository produitRepository;
